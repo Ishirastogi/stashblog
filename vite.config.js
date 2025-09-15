@@ -27,7 +27,7 @@ export default defineConfig(({ command, mode }) => {
       }
     },
     base: '/',
-    build: { outDir: 'build' },
+    build: { outDir: 'dist' },
     css: { postcss: { plugins: [autoprefixer()] } }
   }
 })
