@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react'
 import s from './styles.module.scss'
 import { Chunk, head } from 'helpers'
-import Footer from "layouts/home/footer/index.jsx"; 
-
+import Footer from 'layouts/home/footer/index.jsx'
 
 const TopProducts = [
   {
@@ -40,7 +39,8 @@ const TopProducts = [
     name: 'Meditation Jars',
     image: 'https://images.pexels.com/photos/1350560/pexels-photo-1350560.jpeg?auto=compress&cs=tinysrgb&w=400',
     code: '#90234'
-  },{
+  },
+  {
     id: 4,
     name: 'Rocking Chairs',
     image: 'https://images.pexels.com/photos/4992538/pexels-photo-4992538.jpeg?auto=compress&cs=tinysrgb&w=400',
@@ -77,9 +77,9 @@ const topCatalogs = [
     image: 'https://images.pexels.com/photos/6527056/pexels-photo-6527056.jpeg?auto=compress&cs=tinysrgb&w=400'
   },
   {
-    id: 4,
-    name: 'ENGRAVED POTS',
-    image: 'https://images.pexels.com/photos/4992538/pexels-photo-4992538.jpeg?auto=compress&cs=tinysrgb&w=400'
+    id: 1,
+    name: 'ACCENT CHAIRS',
+    image: 'https://images.pexels.com/photos/1350789/pexels-photo-1350789.jpeg?auto=compress&cs=tinysrgb&w=400'
   }
 ]
 
@@ -142,11 +142,6 @@ const categories = [
     id: 4,
     name: 'SQUARE TABLE',
     image: 'https://images.pexels.com/photos/4992538/pexels-photo-4992538.jpeg?auto=compress&cs=tinysrgb&w=400'
-  },
-  {
-    id: 4,
-    name: 'SQUARE TABLE',
-    image: 'https://images.pexels.com/photos/4992538/pexels-photo-4992538.jpeg?auto=compress&cs=tinysrgb&w=400'
   }
 ]
 
@@ -157,7 +152,7 @@ function App() {
   }, [])
 
   useEffect(() => {
-    let swiper;
+    let swiper
 
     if (topProducts.length) {
       swiper = new window.Swiper(`.topProductSwiper`, {
@@ -169,18 +164,16 @@ function App() {
         autoplay: false,
         navigation: {
           nextEl: `.topProductSwiperNext`,
-          prevEl: `.topProductSwiperPrev`,
-        },
-      });
+          prevEl: `.topProductSwiperPrev`
+        }
+      })
     }
     return () => {
-      if (swiper) swiper.destroy(true, true);
-    };
-  }, [topProducts.length]);
+      if (swiper) swiper.destroy(true, true)
+    }
+  }, [topProducts.length])
   return (
     <div className={s.app}>
-   
-
       {/* Hero */}
       <section className={s.hero}>
         <img
@@ -192,40 +185,45 @@ function App() {
       {/* Top Products */}
       <section className={s.section}>
         <h2>Top Products</h2>
-        
-          <div className={'swiper topProductSwiper '   + s.swiperContainer + ' ' + s.grid6}>
-            <div className={'swiper-wrapper ' + s.swiperWrapper}>
-             {topProducts.map((product, i) => (
-                    <div className={s.grid6 + ' swiper-slide'} key={i}>
-                      {product.map((p) => (
-                        <div key={p.id} className={s.card}>
-                          <img src={p.image} alt={p.name} />
-                          <div className={s.cardInfo}>
-                            <h3>{p.name}</h3>
-                            <p>{p.code}</p>
-                          </div>
-                        </div>
-                      ))}
+
+        <div className={'swiper topProductSwiper ' + s.swiperContainer + ' ' + s.grid6}>
+          <div className={'swiper-wrapper ' + s.swiperWrapper}>
+            {topProducts.map((product, i) => (
+              <div className={s.grid6 + ' swiper-slide'} key={i}>
+                {product.map(p => (
+                  <div key={p.id} className={s.card}>
+                    <img src={p.image} alt={p.name} />
+                    <div className={s.cardInfo}>
+                      <h3>{p.name}</h3>
+                      <p>{p.code}</p>
                     </div>
-                  ))}
-            </div>
-            <div className='swiper-button-next topProductSwiperPrev'></div>
-          <div className='swiper-button-prev topProductSwiperNext'></div>
+                  </div>
+                ))}
+              </div>
+            ))}
           </div>
+          <div className='swiper-button-next topProductSwiperPrev'></div>
+          <div className='swiper-button-prev topProductSwiperNext'></div>
+        </div>
+        <div className={s.viewAllContainer}>
+          <button className={s.viewAllBtn}>View All</button>
+        </div>
       </section>
 
-      {/* Top Catalogs */}
       <section className={s.sectionAlt}>
         <h2>Top Catalogs</h2>
         <div className={s.grid4}>
           {topCatalogs.map(c => (
-            <div key={c.id} className={s.card}>
+            <div key={c.id} className={s.catalogCard}>
               <img src={c.image} alt={c.name} />
               <div className={s.cardInfoCenter}>
                 <h3>{c.name}</h3>
               </div>
             </div>
           ))}
+        </div>
+        <div className={s.viewAllContainer}>
+          <button className={s.viewAllBtn}>View All</button>
         </div>
       </section>
 
@@ -243,14 +241,17 @@ function App() {
             </div>
           ))}
         </div>
+        <div className={s.viewAllContainer}>
+          <button className={s.viewAllBtn}>View All</button>
+        </div>
       </section>
 
       {/* Categories */}
       <section className={s.sectionAlt}>
-        <h2>Categories</h2>
+        <h2>CATEGORIES</h2>
         <div className={s.grid4}>
           {categories.map(c => (
-            <div key={c.id} className={s.card}>
+            <div key={c.id} className={s.catalogCard}>
               <img src={c.image} alt={c.name} />
               <div className={s.cardInfoCenter}>
                 <h3>{c.name}</h3>
@@ -264,7 +265,7 @@ function App() {
       <footer className={s.footer}>
         <p>© 2024 Moradabad Export. All rights reserved.</p>
       </footer> */}
-       <Footer />
+      <Footer />
     </div>
   )
 }

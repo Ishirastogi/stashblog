@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Facebook, Instagram, MessageCircle } from "lucide-react";
 import s from "./styles.module.scss";
+import footer from "images/logo/footer.png";
 
 export default function Footer() {
   return (
@@ -10,11 +11,10 @@ export default function Footer() {
         {/* Left Section (Logo + Socials) */}
         <div className={s.footerLeft}>
           <img
-            src="/images/logo/footer-logo.png" // replace with your footer logo
+            src={footer} // replace with your footer logo
             alt="Moradabad Export Logo"
             className={s.footerLogo}
           />
-          <h2>MORADABAD EXPORT</h2>
           <div className={s.socialIcons}>
             <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
               <Facebook size={20} />

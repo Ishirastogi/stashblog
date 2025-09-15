@@ -1,6 +1,7 @@
 import { Menu, Search, User } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import s from './styles.module.scss'
+import Logo from "images/logo/logo.png";
 
 export default function Main() {
   return (
@@ -8,7 +9,7 @@ export default function Main() {
       {/* Left section */}
       <div className={s.headerLeft}>
         <button className={s.iconBtn}>
-          <Menu size={20} />
+          <Menu size={15} />
         </button>
         <h1></h1>
       </div>
@@ -17,7 +18,7 @@ export default function Main() {
       <div className={s.headerCenter}>
          <Link to="/home">
     <img 
-      src="/images/logo/facebook.png" 
+      src={Logo} 
       alt="Brand Logo" 
       className={s.logoImage} 
     />
@@ -27,10 +28,10 @@ export default function Main() {
       {/* Right section */}
       <div className={s.headerRight}>
         <button className={s.iconBtn}>
-          <Search size={20} />
+          <Search size={15} />
         </button>
         <button className={s.iconBtn}>
-          <User size={20} />
+          <User size={15} />
         </button>
       </div>
     </header>
