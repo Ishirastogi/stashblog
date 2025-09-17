@@ -41,9 +41,9 @@ const TopProducts = [
     code: '#90234'
   },
   {
-    id: 4,
-    name: 'Rocking Chairs',
-    image: 'https://images.pexels.com/photos/4992538/pexels-photo-4992538.jpeg?auto=compress&cs=tinysrgb&w=400',
+    id: 6,
+    name: 'Meditation Jars',
+    image: 'https://images.pexels.com/photos/1350560/pexels-photo-1350560.jpeg?auto=compress&cs=tinysrgb&w=400',
     code: '#90234'
   },
   {
@@ -139,9 +139,9 @@ const categories = [
     image: 'https://images.pexels.com/photos/6527056/pexels-photo-6527056.jpeg?auto=compress&cs=tinysrgb&w=400'
   },
   {
-    id: 4,
-    name: 'SQUARE TABLE',
-    image: 'https://images.pexels.com/photos/4992538/pexels-photo-4992538.jpeg?auto=compress&cs=tinysrgb&w=400'
+    id: 2,
+    name: 'OVAL POTS',
+    image: 'https://images.pexels.com/photos/1090638/pexels-photo-1090638.jpeg?auto=compress&cs=tinysrgb&w=400'
   }
 ]
 
@@ -210,22 +210,25 @@ function App() {
         </div>
       </section>
 
-      <section className={s.sectionAlt}>
-        <h2>Top Catalogs</h2>
-        <div className={s.grid4}>
-          {topCatalogs.map(c => (
-            <div key={c.id} className={s.catalogCard}>
-              <img src={c.image} alt={c.name} />
-              <div className={s.cardInfoCenter}>
-                <h3>{c.name}</h3>
-              </div>
-            </div>
-          ))}
+ {/* Top Catalogs */}
+     <section className={s.sectionAlt}>
+  <h2>Top Catalogs</h2>
+  <div className={s.grid4}>
+    {topCatalogs.map(c => (
+      <div key={c.id} className={s.catalogWrapper}>
+        <div className={s.catalogCard}>
+          <img src={c.image} alt={c.name} />
         </div>
-        <div className={s.viewAllContainer}>
-          <button className={s.viewAllBtn}>View All</button>
+        <div className={s.cardInfoCenter}>
+          <h3>{c.name}</h3>
         </div>
-      </section>
+      </div>
+    ))}
+  </div>
+  <div className={s.viewAllContainer}>
+    <button className={s.viewAllBtn}>View All</button>
+  </div>
+</section>
 
       {/* New Arrivals */}
       <section className={s.section}>
@@ -247,19 +250,21 @@ function App() {
       </section>
 
       {/* Categories */}
-      <section className={s.sectionAlt}>
-        <h2>CATEGORIES</h2>
-        <div className={s.grid4}>
-          {categories.map(c => (
-            <div key={c.id} className={s.catalogCard}>
-              <img src={c.image} alt={c.name} />
-              <div className={s.cardInfoCenter}>
-                <h3>{c.name}</h3>
-              </div>
-            </div>
-          ))}
+<section className={s.sectionAlt}>
+  <h2>CATEGORIES</h2>
+  <div className={s.grid4}>
+    {categories.map(c => (
+      <div key={c.id} className={s.catalogWrapper}>
+        <div className={s.catalogCard}>
+          <img src={c.image} alt={c.name} />
         </div>
-      </section>
+        <div className={s.cardInfoCenter}>
+          <h3>{c.name}</h3>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
 
       {/* Footer
       <footer className={s.footer}>
