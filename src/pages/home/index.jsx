@@ -146,16 +146,28 @@ const categories = [
 ]
 
 function App() {
-  const [topProducts, setTopProducts] = useState(Chunk(TopProducts, 6))
+  const [topProducts] = useState(Chunk(TopProducts, 6))
+
   useEffect(() => {
     head({ title: 'homepage' })
   }, [])
 
   useEffect(() => {
-    let swiper
+    let heroSwiper
+    let productSwiper
+
+    heroSwiper = new window.Swiper(`.heroSwiper`, {
+      slidesPerView: 1,
+      loop: true,
+      autoplay: { delay: 3000 },
+      navigation: {
+        nextEl: `.heroSwiperNext`,
+        prevEl: `.heroSwiperPrev`
+      }
+    })
 
     if (topProducts.length) {
-      swiper = new window.Swiper(`.topProductSwiper`, {
+      productSwiper = new window.Swiper(`.topProductSwiper`, {
         slidesPerView: 1,
         spaceBetween: 0,
         loop: false,
@@ -168,18 +180,43 @@ function App() {
         }
       })
     }
+
     return () => {
-      if (swiper) swiper.destroy(true, true)
+      if (heroSwiper) heroSwiper.destroy(true, true)
+      if (productSwiper) productSwiper.destroy(true, true)
     }
   }, [topProducts.length])
+
   return (
     <div className={s.app}>
       {/* Hero */}
       <section className={s.hero}>
-        <img
-          src='https://images.pexels.com/photos/1090638/pexels-photo-1090638.jpeg?auto=compress&cs=tinysrgb&w=800'
-          alt='Featured'
-        />
+        <div className={'swiper heroSwiper'}>
+          <div className='swiper-wrapper'>
+            <div className='swiper-slide'>
+              <img
+                src='https://images.pexels.com/photos/1090638/pexels-photo-1090638.jpeg?auto=compress&cs=tinysrgb&w=800'
+                alt='Featured 1'
+              />
+            </div>
+            <div className='swiper-slide'>
+              <img
+                src='https://images.pexels.com/photos/414171/pexels-photo-414171.jpeg?auto=compress&cs=tinysrgb&w=800'
+                alt='Featured 2'
+              />
+            </div>
+            <div className='swiper-slide'>
+              <img
+                src='https://images.pexels.com/photos/607812/pexels-photo-607812.jpeg?auto=compress&cs=tinysrgb&w=800'
+                alt='Featured 3'
+              />
+            </div>
+          </div>
+
+          {/* Navigation (optional) */}
+          <div className='swiper-button-next heroSwiperNext'></div>
+          <div className='swiper-button-prev heroSwiperPrev'></div>
+        </div>
       </section>
 
       {/* Top Products */}
@@ -210,25 +247,25 @@ function App() {
         </div>
       </section>
 
- {/* Top Catalogs */}
-     <section className={s.sectionAlt}>
-  <h2>Top Catalogs</h2>
-  <div className={s.grid4}>
-    {topCatalogs.map(c => (
-      <div key={c.id} className={s.catalogWrapper}>
-        <div className={s.catalogCard}>
-          <img src={c.image} alt={c.name} />
+      {/* Top Catalogs */}
+      <section className={s.sectionAlt}>
+        <h2>Top Catalogs</h2>
+        <div className={s.grid4}>
+          {topCatalogs.map(c => (
+            <div key={c.id} className={s.catalogWrapper}>
+              <div className={s.catalogCard}>
+                <img src={c.image} alt={c.name} />
+              </div>
+              <div className={s.cardInfoCenter}>
+                <h3>{c.name}</h3>
+              </div>
+            </div>
+          ))}
         </div>
-        <div className={s.cardInfoCenter}>
-          <h3>{c.name}</h3>
+        <div className={s.viewAllContainer}>
+          <button className={s.viewAllBtn}>View All</button>
         </div>
-      </div>
-    ))}
-  </div>
-  <div className={s.viewAllContainer}>
-    <button className={s.viewAllBtn}>View All</button>
-  </div>
-</section>
+      </section>
 
       {/* New Arrivals */}
       <section className={s.section}>
@@ -250,21 +287,24 @@ function App() {
       </section>
 
       {/* Categories */}
-<section className={s.sectionAlt}>
-  <h2>CATEGORIES</h2>
-  <div className={s.grid4}>
-    {categories.map(c => (
-      <div key={c.id} className={s.catalogWrapper}>
-        <div className={s.catalogCard}>
-          <img src={c.image} alt={c.name} />
+      <section className={s.sectionAlt}>
+        <h2>CATEGORIES</h2>
+        <div className={s.grid4}>
+          {categories.map(c => (
+            <div key={c.id} className={s.catalogWrapper}>
+              <div className={s.catalogCard}>
+                <img src={c.image} alt={c.name} />
+              </div>
+              <div className={s.cardInfoCenter}>
+                <h3>{c.name}</h3>
+              </div>
+            </div>
+          ))}
         </div>
-        <div className={s.cardInfoCenter}>
-          <h3>{c.name}</h3>
+        <div className={s.viewAllContainer}>
+          <button className={s.viewAllBtn}>View All</button>
         </div>
-      </div>
-    ))}
-  </div>
-</section>
+      </section>
 
       {/* Footer
       <footer className={s.footer}>

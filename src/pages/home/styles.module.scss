@@ -32,10 +32,11 @@
   display: block;
   object-fit: cover;  /* makes sure it fills horizontally */
 }
-.hero img {
+
+  .hero img {
   width: 100%;
-  height: 80vh;       
-  object-fit: cover;  
+  height: 100vh; 
+  object-fit: cover;
 
 }
 
@@ -100,12 +101,12 @@
   text-align: left;
 }
   h3 {
-      font-size: 14px;  
+      font-size: 16px;  
       margin: 0 0 2px 0;
     }
 
     p {
-      font-size: 12px;  
+      font-size: 1px;  
       color: #555;
       margin: 0;
     }
@@ -145,17 +146,16 @@
 }
 
 .grid4 {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 32px; /* more spacing */
-  justify-items: center;
+    display: flex;
+  justify-content: space-evenly; /* equal space left, right & between */
+  flex-wrap: wrap;
 }
 
 .catalogCard {
   position: relative;
   width: 100%;
-  max-width: 260px;
-  height: 260px;
+  max-width: 290px;
+  height: 270px;
   border-radius: 8px;
   overflow: hidden;
   background: #fff;

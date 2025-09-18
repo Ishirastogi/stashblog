@@ -9,7 +9,7 @@ export default function Main() {
       {/* Left section */}
       <div className={s.headerLeft}>
         <button className={s.iconBtn}>
-          <Menu size={20} />
+          <Menu size={22} />
         </button>
         <h1></h1>
       </div>
@@ -28,10 +28,10 @@ export default function Main() {
       {/* Right section */}
       <div className={s.headerRight}>
         <button className={s.iconBtn}>
-          <Search size={20} />
+          <Search size={22} />
         </button>
         <button className={s.iconBtn}>
-          <User size={20} />
+          <User size={22} />
         </button>
       </div>
     </header>
