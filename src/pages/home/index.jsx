@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react'
 import s from './styles.module.scss'
 import { Chunk, head } from 'helpers'
+import { useRef } from "react";
+
 import Footer from 'layouts/home/footer/index.jsx'
 
 const TopProducts = [
@@ -37,13 +39,13 @@ const TopProducts = [
   {
     id: 6,
     name: 'Meditation Jars',
-    image: 'https://images.pexels.com/photos/1350560/pexels-photo-1350560.jpeg?auto=compress&cs=tinysrgb&w=400',
+    image: 'https://images.pexels.com/photos/6527056/pexels-photo-6527056.jpeg?auto=compress&cs=tinysrgb&w=400',
     code: '#90234'
   },
   {
     id: 6,
     name: 'Meditation Jars',
-    image: 'https://images.pexels.com/photos/1350560/pexels-photo-1350560.jpeg?auto=compress&cs=tinysrgb&w=400',
+    image: 'https://images.pexels.com/photos/1350789/pexels-photo-1350789.jpeg?auto=compress&cs=tinysrgb&w=400',
     code: '#90234'
   },
   {
@@ -55,7 +57,7 @@ const TopProducts = [
   {
     id: 6,
     name: 'Meditation Jars',
-    image: 'https://images.pexels.com/photos/1350560/pexels-photo-1350560.jpeg?auto=compress&cs=tinysrgb&w=400',
+    image: 'https://images.pexels.com/photos/1350789/pexels-photo-1350789.jpeg?auto=compress&cs=tinysrgb&w=400',
     code: '#90234'
   }
 ]
@@ -87,13 +89,13 @@ const newArrivals = [
   {
     id: 1,
     name: 'Hand Painted Clay Pots',
-    image: 'https://images.pexels.com/photos/1350560/pexels-photo-1350560.jpeg?auto=compress&cs=tinysrgb&w=400',
+    image: 'https://images.pexels.com/photos/1350789/pexels-photo-1350789.jpeg?auto=compress&cs=tinysrgb&w=400',
     code: '#90234'
   },
   {
     id: 2,
     name: 'Sculptures & Figurines',
-    image: 'https://images.pexels.com/photos/1350560/pexels-photo-1350560.jpeg?auto=compress&cs=tinysrgb&w=400',
+    image: 'https://images.pexels.com/photos/6527056/pexels-photo-6527056.jpeg?auto=compress&cs=tinysrgb&w=400',
     code: '#90234'
   },
   {
@@ -111,7 +113,7 @@ const newArrivals = [
   {
     id: 5,
     name: 'Library Stool Chair',
-    image: 'https://images.pexels.com/photos/1350560/pexels-photo-1350560.jpeg?auto=compress&cs=tinysrgb&w=400',
+    image: 'https://images.pexels.com/photos/1350789/pexels-photo-1350789.jpeg?auto=compress&cs=tinysrgb&w=400',
     code: '#90234'
   },
   {
@@ -144,6 +146,7 @@ const categories = [
     image: 'https://images.pexels.com/photos/1090638/pexels-photo-1090638.jpeg?auto=compress&cs=tinysrgb&w=400'
   }
 ]
+
 
 function App() {
   const [topProducts] = useState(Chunk(TopProducts, 6))
@@ -216,6 +219,7 @@ function App() {
           {/* Navigation (optional) */}
           <div className='swiper-button-next heroSwiperNext'></div>
           <div className='swiper-button-prev heroSwiperPrev'></div>
+          
         </div>
       </section>
 
@@ -239,8 +243,8 @@ function App() {
               </div>
             ))}
           </div>
-          <div className='swiper-button-next topProductSwiperPrev'></div>
-          <div className='swiper-button-prev topProductSwiperNext'></div>
+          <div className='swiper-button-prev topProductSwiperPrev'></div>
+          <div className='swiper-button-next topProductSwiperNext'></div>
         </div>
         <div className={s.viewAllContainer}>
           <button className={s.viewAllBtn}>View All</button>

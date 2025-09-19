@@ -1,7 +1,152 @@
+@font-face {
+  font-family: 'OptimaNova';
+  src: url('../assets/fonts/OptimaNovaLTProBlack.otf') format('opentype');
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'OptimaNova';
+  src: url('../assets/fonts/OptimaNovaLTProBlackItalic.otf') format('opentype');
+  font-weight: 900;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'OptimaNova';
+  src: url('../assets/fonts/OptimaNovaLTProBold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'OptimaNova';
+  src: url('../assets/fonts/OptimaNovaLTProBoldItalic.otf') format('opentype');
+  font-weight: 700;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'OptimaNova';
+  src: url('../assets/fonts/OptimaNovaLTProBoldCond.otf') format('opentype');
+  font-weight: 700;
+  font-stretch: condensed;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'OptimaNova';
+  src: url('../assets/fonts/OptimaNovaLTProCondensed.otf') format('opentype');
+  font-weight: 400;
+  font-stretch: condensed;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'OptimaNova';
+  src: url('../assets/fonts/OptimaNovaLTProDemi.otf') format('opentype');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'OptimaNova';
+  src: url('../assets/fonts/OptimaNovaLTProDemiCond.otf') format('opentype');
+  font-weight: 600;
+  font-stretch: condensed;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'OptimaNova';
+  src: url('../assets/fonts/OptimaNovaLTProDemiItalic.otf') format('opentype');
+  font-weight: 600;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'OptimaNova';
+  src: url('../assets/fonts/OptimaNovaLTProHeavy.otf') format('opentype');
+  font-weight: 950;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'OptimaNova';
+  src: url('../assets/fonts/OptimaNovaLTProHeavyItalic.otf') format('opentype');
+  font-weight: 950;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'OptimaNova';
+  src: url('../assets/fonts/OptimaNovaLTProItalic.otf') format('opentype');
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'OptimaNova';
+  src: url('../assets/fonts/OptimaNovaLTProLight.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'OptimaNova';
+  src: url('../assets/fonts/OptimaNovaLTProLightCond.otf') format('opentype');
+  font-weight: 300;
+  font-stretch: condensed;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'OptimaNova';
+  src: url('../assets/fonts/OptimaNovaLTProLightItalic.otf') format('opentype');
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'OptimaNova';
+  src: url('../assets/fonts/OptimaNovaLTProMedium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'OptimaNova';
+  src: url('../assets/fonts/OptimaNovaLTProMediumCond.otf') format('opentype');
+  font-weight: 500;
+  font-stretch: condensed;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'OptimaNova';
+  src: url('../assets/fonts/OptimaNovaLTProMediumIta.otf') format('opentype');
+  font-weight: 500;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'OptimaNova';
+  src: url('../assets/fonts/OptimaNovaLTProRegular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'OptimaNova';
+  src: url('../assets/fonts/OptimaNovaLTProTitlingInit.otf') format('opentype');
+  font-weight: 100;
+  font-style: normal;
+}
+
 :root {
-  --ff-primary: 'Montserrat';
-  --ff-title: 'Montserrat';
-  --ff-content: 'Poppins';
+  --ff-primary: 'OptimaNova';
+  --ff-title: 'OptimaNova';
+  --ff-content: 'Raleway';
 }
 
 $base-font-size: 16px;

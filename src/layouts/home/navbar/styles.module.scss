@@ -1,7 +1,9 @@
+/* Navbar */
 .header {
-  background-color: var(--c-white);
+  background-color: var(--c-black);
+  color: var(--c-white);
   width: 100%;
-  height: 3.5rem;
+  height: 4rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -9,63 +11,132 @@
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 99;
-  // box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.1);
+  z-index: 100;
   transition: all 0.3s ease;
-  font-family: var(--ff-title);
-}
 
-.headerLeft,
-.headerCenter,
-.headerRight {
-  display: flex;
-  align-items: center;
-}
+  svg,
+  .logoImage {
+    filter: brightness(0) invert(1); // white
+    transition: filter 0.3s ease;
+  }
 
-/* Left section */
-.headerLeft {
-  gap: 0.5rem;
+  /* Hover only when at top */
+  &:not(.scrolled):hover {
+    background-color: var(--c-white);
+    color: var(--c-black);
 
-  h1 {
-    font-size: 1rem;
-    font-weight: 600;
-    margin: 0;
+    svg,
+    .logoImage {
+      filter: none; // black
+    }
   }
 }
 
-/* Center (Logo) */
-.headerCenter {
-  flex: 1;
-  justify-content: center;
-  font-size: 1.10rem;
-  font-weight: 500;
+/* Navbar turns white when scrolled */
+.header.scrolled {
+  background-color: var(--c-white);
   color: var(--c-black);
 
-  a {
-    color: inherit;
-    text-decoration: none;
+  svg,
+  .logoImage {
+    filter: none; // black
+  }
+
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Keep black when nav open */
+.header.open {
+  background-color: var(--c-black) !important;
+  color: var(--c-white) !important;
+
+  svg,
+  .logoImage {
+    filter: brightness(0) invert(1) !important;
   }
 }
-.headerCenter {
+
+/* Sidebar Navigation */
+.sideNav {
+  position: fixed;
+  top: 0;
+  left: -300px; /* hidden */
+  width: 300px;
+  height: 100%;
+  background-color: var(--c-white);
+  color: var(--c-black);
+  z-index: 200;
   display: flex;
-  justify-content: center; 
-  align-items: center;    
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 2rem 1.5rem;
+  transition: left 0.3s ease;
+
+  /* Close button */
+  .closeBtn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    top: 1rem;
+    left: 1rem; /* 👈 left side */
+    padding: 0.4rem;
+    border-radius: 50%;
+    transition: background-color 0.2s ease;
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.05);
+    }
+
+    svg {
+      color: var(--c-black);
+    }
+  }
+
+  ul {
+    list-style: none;
+    padding: 4rem 0 0; /* push below close btn */
+    margin: 0;
+    width: 100%;
+
+    li {
+      width: 100%;
+      margin: 1rem 0;
+
+      a {
+        display: block;
+        text-decoration: none;
+        color: var(--c-black);
+        font-size: 1.1rem;
+        font-weight: 500;
+        padding-bottom: 0.4rem;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+        transition: color 0.3s ease, border-color 0.3s ease;
+
+        &:hover {
+          color: var(--c-gray);
+          border-color: var(--c-gray);
+        }
+      }
+    }
+  }
 }
 
+.sideNav.show {
+  left: 0; /* slide in */
+}
+
+/* Logo */
 .logoImage {
-  height: 65px;      
-  width: auto;       
+  height: 80px;
+  width: auto;
   object-fit: contain;
-  cursor: pointer;   
-  transition: transform 0.2s ease-in-out;
-}
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out, filter 0.3s ease;
 
-.logoImage:hover {
-  transform: scale(1.05); 
-}
-/* Right section */
-.headerRight {
-  gap: 0.5rem;
+  &:hover {
+    transform: scale(1.05);
+  }
 }
 
 /* Icon buttons */
@@ -81,26 +152,15 @@
   transition: background-color 0.2s ease;
 
   &:hover {
-    background-color: rgba(0, 0, 0, 0.05);
-  }
-
-  svg {
-    color: var(--c-black);
+    background-color: rgba(255, 255, 255, 0.1);
   }
 }
 
-/* Responsive tweaks */
-@media (max-width: 768px) {
-  .header {
-    padding: 0 0.5rem;
-    height: 3rem;
-  }
-
-  .headerCenter {
-    font-size: 1rem;
-  }
-
-  .iconBtn {
-    padding: 0.3rem;
-  }
+/* Right section */
+.headerRight {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
 }
