@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import s from './styles.module.scss'
 import { Chunk, head } from 'helpers'
-import { useRef } from "react";
+import { ArrowRight, ArrowLeft } from 'lucide-react'
 
 import Footer from 'layouts/home/footer/index.jsx'
 
@@ -147,7 +147,6 @@ const categories = [
   }
 ]
 
-
 function App() {
   const [topProducts] = useState(Chunk(TopProducts, 6))
 
@@ -219,7 +218,6 @@ function App() {
           {/* Navigation (optional) */}
           <div className='swiper-button-next heroSwiperNext'></div>
           <div className='swiper-button-prev heroSwiperPrev'></div>
-          
         </div>
       </section>
 
@@ -253,7 +251,19 @@ function App() {
 
       {/* Top Catalogs */}
       <section className={s.sectionAlt}>
-        <h2>Top Catalogs</h2>
+        {/* Header */}
+        <div className={s.headerRow}>
+          <h2 className={s.headerTitle}>Top Catalogs</h2>
+          <div className={s.arrows}>
+            <div className={s.arrowBtn}>
+              <ArrowLeft className={s.arrowIcon} />
+            </div>
+            <div className={s.arrowBtn}>
+              <ArrowRight className={s.arrowIcon} />
+            </div>
+          </div>
+        </div>
+
         <div className={s.grid4}>
           {topCatalogs.map(c => (
             <div key={c.id} className={s.catalogWrapper}>
@@ -266,6 +276,7 @@ function App() {
             </div>
           ))}
         </div>
+
         <div className={s.viewAllContainer}>
           <button className={s.viewAllBtn}>View All</button>
         </div>
@@ -273,7 +284,18 @@ function App() {
 
       {/* New Arrivals */}
       <section className={s.section}>
-        <h2>New Arrivals</h2>
+        {/* Header */}
+        <div className={s.headerRow}>
+          <h2 className={s.headerTitle}>New Arrivals</h2>
+          <div className={s.arrows}>
+            <div className={s.arrowBtn}>
+              <ArrowLeft className={s.arrowIcon} />
+            </div>
+            <div className={s.arrowBtn}>
+              <ArrowRight className={s.arrowIcon} />
+            </div>
+          </div>
+        </div>
         <div className={s.grid6}>
           {newArrivals.map(p => (
             <div key={p.id} className={s.card}>
@@ -285,6 +307,7 @@ function App() {
             </div>
           ))}
         </div>
+
         <div className={s.viewAllContainer}>
           <button className={s.viewAllBtn}>View All</button>
         </div>
@@ -292,7 +315,19 @@ function App() {
 
       {/* Categories */}
       <section className={s.sectionAlt}>
-        <h2>CATEGORIES</h2>
+        {/* Header */}
+        <div className={s.headerRow}>
+          <h2 className={s.headerTitle}>CATEGORIES</h2>
+          <div className={s.arrows}>
+            <div className={s.arrowBtn}>
+              <ArrowLeft className={s.arrowIcon} />
+            </div>
+            <div className={s.arrowBtn}>
+              <ArrowRight className={s.arrowIcon} />
+            </div>
+          </div>
+        </div>
+
         <div className={s.grid4}>
           {categories.map(c => (
             <div key={c.id} className={s.catalogWrapper}>
@@ -305,6 +340,7 @@ function App() {
             </div>
           ))}
         </div>
+
         <div className={s.viewAllContainer}>
           <button className={s.viewAllBtn}>View All</button>
         </div>

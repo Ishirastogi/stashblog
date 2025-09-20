@@ -152,6 +152,61 @@
   flex-wrap: wrap;
   gap: 20px; 
 }
+.headerRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 3rem; /* adjust if needed */
+}
+
+.headerRow {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  margin-bottom: 2.5rem;
+  position: relative;
+}
+
+.headerTitle {
+  grid-column: 2; /* force to center column */
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 500;
+  color: #1f2937; /* gray-800 */
+}
+
+.arrows {
+  grid-column: 3; /* right side */
+  display: flex;
+  gap: 0.75rem;
+  justify-self: end;
+}
+
+.arrowBtn {
+  width: 40px;
+  height: 40px;
+  background-color: #F0F2F3; /* gray-300 */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.arrowBtn:hover {
+  background-color: #3A3F55; /* gray-400 */
+}
+
+.arrowIcon {
+  width: 16px;
+  height: 16px;
+  color: #0f0f0f; /* gray-700 */
+}
+.arrowIcon:hover {
+  color: #fff; /* gray-400 */
+}
+
 
 .catalogCard {
   position: relative;
