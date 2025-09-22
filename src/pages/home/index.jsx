@@ -1,11 +1,11 @@
-import { useEffect, useState } from 'react'
+import { useEffect} from 'react'
 import s from './styles.module.scss'
-import { Chunk, head } from 'helpers'
+import {  head } from 'helpers'
 import { ArrowRight, ArrowLeft } from 'lucide-react'
 
 import Footer from 'layouts/home/footer/index.jsx'
 
-const TopProducts = [
+const topProducts = [
   {
     id: 1,
     name: 'Curved Wooden Tables',
@@ -148,7 +148,6 @@ const categories = [
 ]
 
 function App() {
-  const [topProducts] = useState(Chunk(TopProducts, 6))
 
   useEffect(() => {
     head({ title: 'homepage' })
@@ -156,7 +155,6 @@ function App() {
 
   useEffect(() => {
     let heroSwiper
-    let productSwiper
 
     heroSwiper = new window.Swiper(`.heroSwiper`, {
       slidesPerView: 1,
@@ -168,24 +166,9 @@ function App() {
       }
     })
 
-    if (topProducts.length) {
-      productSwiper = new window.Swiper(`.topProductSwiper`, {
-        slidesPerView: 1,
-        spaceBetween: 0,
-        loop: false,
-        lazy: true,
-        preloadImages: false,
-        autoplay: false,
-        navigation: {
-          nextEl: `.topProductSwiperNext`,
-          prevEl: `.topProductSwiperPrev`
-        }
-      })
-    }
-
+  
     return () => {
       if (heroSwiper) heroSwiper.destroy(true, true)
-      if (productSwiper) productSwiper.destroy(true, true)
     }
   }, [topProducts.length])
 
@@ -222,28 +205,31 @@ function App() {
       </section>
 
       {/* Top Products */}
-      <section className={s.section}>
-        <h2>Top Products</h2>
-
-        <div className={'swiper topProductSwiper ' + s.swiperContainer + ' ' + s.grid6}>
-          <div className={'swiper-wrapper ' + s.swiperWrapper}>
-            {topProducts.map((product, i) => (
-              <div className={s.grid6 + ' swiper-slide'} key={i}>
-                {product.map(p => (
-                  <div key={p.id} className={s.card}>
-                    <img src={p.image} alt={p.name} />
-                    <div className={s.cardInfo}>
-                      <h3>{p.name}</h3>
-                      <p>{p.code}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            ))}
+     <section className={s.section}>
+        {/* Header */}
+        <div className={s.headerRow}>
+          <h2 className={s.headerTitle}>Top Products</h2>
+          <div className={s.arrows}>
+            <div className={s.arrowBtn}>
+              <ArrowLeft className={s.arrowIcon} />
+            </div>
+            <div className={s.arrowBtn}>
+              <ArrowRight className={s.arrowIcon} />
+            </div>
           </div>
-          <div className='swiper-button-prev topProductSwiperPrev'></div>
-          <div className='swiper-button-next topProductSwiperNext'></div>
         </div>
+        <div className={s.grid6}>
+          {newArrivals.map(p => (
+            <div key={p.id} className={s.card}>
+              <img src={p.image} alt={p.name} />
+              <div className={s.cardInfo}>
+                <h3>{p.name}</h3>
+                <p>{p.code}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
         <div className={s.viewAllContainer}>
           <button className={s.viewAllBtn}>View All</button>
         </div>
