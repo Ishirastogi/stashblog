@@ -2,86 +2,185 @@ import { useEffect, useState } from 'react'
 import s from './styles.module.scss'
 import { head } from 'helpers'
 import Footer from 'layouts/home/footer/index.jsx'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faGripHorizontal, faList } from '@fortawesome/free-solid-svg-icons'
 
 const productsData = [
   {
     id: 1,
     name: 'Ceramic Arch Vase',
+    code: '90234',
     category: 'Vases',
     price: '$89.00',
     description:
-      'A minimalist ceramic vase featuring a distinctive arch design. Handcrafted with attention to detail, this piece brings modern elegance to any space. The warm terracotta finish complements both contemporary and traditional interiors.',
-    specifications: 'Height: 12 inches, Width: 8 inches, Material: Ceramic, Finish: Matte terracotta',
-    image: 'https://images.pexels.com/photos/6473/art-earth-pottery-ceramic.jpg?auto=compress&cs=tinysrgb&w=400'
+      'A minimalist ceramic vase featuring a distinctive arch design. The neutral finish complements any decor style and adds a touch of elegance to your home Crafted from high-quality materials, this vase exhibits a lustrous finish that enhances its visual appeal Whether composed of fine ceramic, hand-blown glass, or elegant porcelain, the material’s intrinsic beauty is accentuated through glazing or polishing techniques that lend it a radiant sheen. The surface invites touch as much as sight with textures that range from smooth, glass-like perfection to subtly tactile finishes that evoke a sense of artisanal craftsmanship. Each vase carries the signature of skilled artisans whose hands have ensuring that every curve, contour, and nuance is executed flawlessly. The color palette of this vase is carefully considered to complement a wide array of interior styles. Subtle...',
+    specifications: {
+      L: '99cm',
+      B: '109cm',
+      H: '54cm',
+      Material: 'Ceramic',
+      Style: 'Vintage Classic',
+      Durability: '10+ Years',
+      Weight: '12.5 Kg',
+      Finish: 'Matte Terracotta',
+      Usage: 'Indoor Display',
+      Polish: 'Glossy Mirror'
+    },
+    image: 'https://images.pexels.com/photos/230477/pexels-photo-230477.jpeg?auto=compress&cs=tinysrgb&w=400'
   },
+
   {
     id: 2,
     name: 'Abstract Sculpture Bowl',
+    code: '90234',
     category: 'Sculptures',
     price: '$156.00',
     description:
-      'An abstract ceramic bowl that doubles as a striking sculptural piece. The flowing lines and organic form create visual interest while maintaining functionality. Perfect for display or practical use.',
-    specifications: 'Diameter: 10 inches, Height: 6 inches, Material: Glazed ceramic, Weight: 2.5 lbs',
-    image: 'https://images.pexels.com/photos/5945/art-art-materials-artist-artwork.jpg?auto=compress&cs=tinysrgb&w=400'
+      'A minimalist ceramic vase featuring a distinctive arch design. The neutral finish complements any decor style and adds a touch of elegance to your home Crafted from high-quality materials, this vase exhibits a lustrous finish that enhances its visual appeal Whether composed of fine ceramic, hand-blown glass, or elegant porcelain, the material’s intrinsic beauty is accentuated through glazing or polishing techniques that lend it a radiant sheen. The surface invites touch as much as sight with textures that range from smooth, glass-like perfection to subtly tactile finishes that evoke a sense of artisanal craftsmanship. Each vase carries the signature of skilled artisans whose hands have ensuring that every curve, contour, and nuance is executed flawlessly. The color palette of this vase is carefully considered to complement a wide array of interior styles. Subtle...',
+    specifications: {
+      L: '99cm',
+      B: '109cm',
+      H: '54cm',
+      Material: 'Ceramic',
+      Style: 'Vintage Classic',
+      Durability: '10+ Years',
+      Weight: '12.5 Kg',
+      Finish: 'Matte Terracotta',
+      Usage: 'Indoor Display',
+      Polish: 'Glossy Mirror'
+    },
+    image: 'https://images.pexels.com/photos/775219/pexels-photo-775219.jpeg?auto=compress&cs=tinysrgb&w=400'
   },
   {
     id: 3,
     name: 'Flowing Form Vase',
+    code: '90234',
     category: 'Vases',
     price: '$124.00',
     description:
-      'Inspired by natural water flow, this ceramic vase features smooth, undulating curves. The neutral color palette and organic shape make it a versatile accent piece for modern homes.',
-    specifications: 'Height: 14 inches, Base: 5 inches, Material: Stoneware ceramic, Color: Natural white',
-    image: 'https://images.pexels.com/photos/4226925/pexels-photo-4226925.jpeg?auto=compress&cs=tinysrgb&w=400'
+      'A minimalist ceramic vase featuring a distinctive arch design. The neutral finish complements any decor style and adds a touch of elegance to your home Crafted from high-quality materials, this vase exhibits a lustrous finish that enhances its visual appeal Whether composed of fine ceramic, hand-blown glass, or elegant porcelain, the material’s intrinsic beauty is accentuated through glazing or polishing techniques that lend it a radiant sheen. The surface invites touch as much as sight with textures that range from smooth, glass-like perfection to subtly tactile finishes that evoke a sense of artisanal craftsmanship. Each vase carries the signature of skilled artisans whose hands have ensuring that every curve, contour, and nuance is executed flawlessly. The color palette of this vase is carefully considered to complement a wide array of interior styles. Subtle...',
+    specifications: {
+      L: '99cm',
+      B: '109cm',
+      H: '54cm',
+      Material: 'Ceramic',
+      Style: 'Vintage Classic',
+      Durability: '10+ Years',
+      Weight: '12.5 Kg',
+      Finish: 'Matte Terracotta',
+      Usage: 'Indoor Display',
+      Polish: 'Glossy Mirror'
+    },
+    image: 'https://images.pexels.com/photos/230477/pexels-photo-230477.jpeg?auto=compress&cs=tinysrgb&w=400'
   },
   {
     id: 4,
     name: 'Bamboo Serving Tray',
+    code: '90234',
     category: 'Serving',
     price: '$78.00',
     description:
-      'Sustainably sourced bamboo serving tray with clean lines and natural finish. Features raised edges for secure serving and a smooth surface perfect for entertaining or daily use.',
-    specifications: 'Length: 16 inches, Width: 12 inches, Material: Bamboo wood, Finish: Natural oil',
+      'A minimalist ceramic vase featuring a distinctive arch design. The neutral finish complements any decor style and adds a touch of elegance to your home Crafted from high-quality materials, this vase exhibits a lustrous finish that enhances its visual appeal Whether composed of fine ceramic, hand-blown glass, or elegant porcelain, the material’s intrinsic beauty is accentuated through glazing or polishing techniques that lend it a radiant sheen. The surface invites touch as much as sight with textures that range from smooth, glass-like perfection to subtly tactile finishes that evoke a sense of artisanal craftsmanship. Each vase carries the signature of skilled artisans whose hands have ensuring that every curve, contour, and nuance is executed flawlessly. The color palette of this vase is carefully considered to complement a wide array of interior styles. Subtle...',
+    specifications: {
+      L: '99cm',
+      B: '109cm',
+      H: '54cm',
+      Material: 'Ceramic',
+      Style: 'Vintage Classic',
+      Durability: '10+ Years',
+      Weight: '12.5 Kg',
+      Finish: 'Matte Terracotta',
+      Usage: 'Indoor Display',
+      Polish: 'Glossy Mirror'
+    },
     image: 'https://images.pexels.com/photos/4107120/pexels-photo-4107120.jpeg?auto=compress&cs=tinysrgb&w=400'
   },
   {
     id: 5,
     name: 'Ceramic Tea Pot',
+    code: '90234',
     category: 'Teaware',
     price: '$95.00',
     description:
-      'Elegant ceramic teapot with a contemporary silhouette. The smooth glaze and ergonomic handle provide both beauty and functionality for the perfect tea service experience.',
-    specifications: 'Capacity: 24 oz, Height: 7 inches, Material: Porcelain ceramic, Color: Charcoal gray',
+      'A minimalist ceramic vase featuring a distinctive arch design. The neutral finish complements any decor style and adds a touch of elegance to your home Crafted from high-quality materials, this vase exhibits a lustrous finish that enhances its visual appeal Whether composed of fine ceramic, hand-blown glass, or elegant porcelain, the material’s intrinsic beauty is accentuated through glazing or polishing techniques that lend it a radiant sheen. The surface invites touch as much as sight with textures that range from smooth, glass-like perfection to subtly tactile finishes that evoke a sense of artisanal craftsmanship. Each vase carries the signature of skilled artisans whose hands have ensuring that every curve, contour, and nuance is executed flawlessly. The color palette of this vase is carefully considered to complement a wide array of interior styles. Subtle...',
+    specifications: {
+      L: '99cm',
+      B: '109cm',
+      H: '54cm',
+      Material: 'Ceramic',
+      Style: 'Vintage Classic',
+      Durability: '10+ Years',
+      Weight: '12.5 Kg',
+      Finish: 'Matte Terracotta',
+      Usage: 'Indoor Display',
+      Polish: 'Glossy Mirror'
+    },
     image: 'https://images.pexels.com/photos/230477/pexels-photo-230477.jpeg?auto=compress&cs=tinysrgb&w=400'
   },
   {
     id: 6,
     name: 'Modernist Table Lamp',
+    code: '90234',
     category: 'Lighting',
     price: '$198.00',
     description:
-      'Sculptural table lamp combining form and function. The curved ceramic base creates dramatic shadows while providing warm, ambient lighting. A statement piece for contemporary interiors.',
-    specifications: 'Height: 18 inches, Base: 8 inches, Material: Ceramic & metal, Bulb: E26 LED compatible',
+      'A minimalist ceramic vase featuring a distinctive arch design. The neutral finish complements any decor style and adds a touch of elegance to your home Crafted from high-quality materials, this vase exhibits a lustrous finish that enhances its visual appeal Whether composed of fine ceramic, hand-blown glass, or elegant porcelain, the material’s intrinsic beauty is accentuated through glazing or polishing techniques that lend it a radiant sheen. The surface invites touch as much as sight with textures that range from smooth, glass-like perfection to subtly tactile finishes that evoke a sense of artisanal craftsmanship. Each vase carries the signature of skilled artisans whose hands have ensuring that every curve, contour, and nuance is executed flawlessly. The color palette of this vase is carefully considered to complement a wide array of interior styles. Subtle...',
+    specifications: {
+      L: '99cm',
+      B: '109cm',
+      H: '54cm',
+      Material: 'Ceramic',
+      Style: 'Vintage Classic',
+      Durability: '10+ Years',
+      Weight: '12.5 Kg',
+      Finish: 'Matte Terracotta',
+      Usage: 'Indoor Display',
+      Polish: 'Glossy Mirror'
+    },
     image: 'https://images.pexels.com/photos/775219/pexels-photo-775219.jpeg?auto=compress&cs=tinysrgb&w=400'
   },
   {
     id: 7,
     name: 'Geometric Planter Set',
+    code: '90234',
     category: 'Planters',
     price: '$145.00',
     description:
-      'Set of three geometric planters in graduated sizes. The angular design adds modern sophistication to your plant display while the neutral finish complements any decor style.',
-    specifications: "Sizes: Small (4'), Medium (6'), Large (8'), Material: Concrete composite, Drainage included",
+      'A minimalist ceramic vase featuring a distinctive arch design. The neutral finish complements any decor style and adds a touch of elegance to your home Crafted from high-quality materials, this vase exhibits a lustrous finish that enhances its visual appeal Whether composed of fine ceramic, hand-blown glass, or elegant porcelain, the material’s intrinsic beauty is accentuated through glazing or polishing techniques that lend it a radiant sheen. The surface invites touch as much as sight with textures that range from smooth, glass-like perfection to subtly tactile finishes that evoke a sense of artisanal craftsmanship. Each vase carries the signature of skilled artisans whose hands have ensuring that every curve, contour, and nuance is executed flawlessly. The color palette of this vase is carefully considered to complement a wide array of interior styles. Subtle...',
+    specifications: {
+      L: '99cm',
+      B: '109cm',
+      H: '54cm',
+      Material: 'Ceramic',
+      Style: 'Vintage Classic',
+      Durability: '10+ Years',
+      Weight: '12.5 Kg',
+      Finish: 'Matte Terracotta',
+      Usage: 'Indoor Display',
+      Polish: 'Glossy Mirror'
+    },
     image: 'https://images.pexels.com/photos/1198802/pexels-photo-1198802.jpeg?auto=compress&cs=tinysrgb&w=400'
   },
   {
     id: 8,
     name: 'Minimalist Fruit Bowl',
+    code: '90234',
     category: 'Serving',
     price: '$67.00',
     description:
-      'Clean-lined fruit bowl with a generous capacity and timeless design. The smooth interior and subtle exterior texture create visual interest while maintaining practical functionality.',
-    specifications: 'Diameter: 12 inches, Height: 4 inches, Material: Glazed ceramic, Color: Off-white',
+      'A minimalist ceramic vase featuring a distinctive arch design. The neutral finish complements any decor style and adds a touch of elegance to your home Crafted from high-quality materials, this vase exhibits a lustrous finish that enhances its visual appeal Whether composed of fine ceramic, hand-blown glass, or elegant porcelain, the material’s intrinsic beauty is accentuated through glazing or polishing techniques that lend it a radiant sheen. The surface invites touch as much as sight with textures that range from smooth, glass-like perfection to subtly tactile finishes that evoke a sense of artisanal craftsmanship. Each vase carries the signature of skilled artisans whose hands have ensuring that every curve, contour, and nuance is executed flawlessly. The color palette of this vase is carefully considered to complement a wide array of interior styles. Subtle...',
+    specifications: {
+      L: '99cm',
+      B: '109cm',
+      H: '54cm',
+      Material: 'Ceramic',
+      Style: 'Vintage Classic',
+      Durability: '10+ Years',
+      Weight: '12.5 Kg',
+      Finish: 'Matte Terracotta',
+      Usage: 'Indoor Display',
+      Polish: 'Glossy Mirror'
+    },
     image: 'https://images.pexels.com/photos/3992212/pexels-photo-3992212.jpeg?auto=compress&cs=tinysrgb&w=400'
   }
 ]
@@ -110,64 +209,101 @@ export default function Catalog3() {
 
   return (
     <div>
-      {/* Header */}
-      <header className={s.header}>
-        <div className={s.container}>
-          <h1 className={s['catalog-title']}>Catalog 3</h1>
-          <div className={s['search-container']}>
-            <input
-              type='text'
-              placeholder='Search products...'
-              value={searchTerm}
-              onChange={e => setSearchTerm(e.target.value)}
-              className={s['search-input']}
-            />
+      <div className={s.header}>
+        <div className={s.topRow}>
+          {/* Left - Sort By */}
+          <div className={s.left}>
+            <select className={s.sortSelect}>
+              <option value=''>Sort By</option>
+              <option value='price'>Price</option>
+              <option value='name'>Name</option>
+            </select>
+          </div>
+
+          {/* Center - Title */}
+          <div className={s.center}>
+            <h1 className={s.title}>Catalogue Name</h1>
+          </div>
+
+          {/* Right - Icons */}
+          <div className={s.right}>
+            <button className={s.iconBtn}>
+              <FontAwesomeIcon icon={faGripHorizontal} />
+            </button>
+            <button className={s.iconBtn}>
+              <FontAwesomeIcon icon={faList} />
+            </button>
+            <button className={s.iconBtn}>☰</button>
           </div>
         </div>
-      </header>
 
-      {/* Main Content */}
-      <main className={s['main-content']}>
-        <div className={`${s.container} ${s['products-grid']}`}>
+        {/* Divider */}
+        <hr className={s.divider} />
+
+        {/* Bottom Row */}
+        <div className={s.bottomRow}>
+          <div className={s.bottomLeft}>
+            <button className={s.linkBtn}>Select All</button>
+            <button className={s.linkBtn}>Deselect</button>
+          </div>
+          <div className={s.bottomRight}>
+            <button className={s.queryBtn}>Send Query</button>
+          </div>
+        </div>
+      </div>
+
+  {/* main content */}
+      <main className={s.mainContent}>
+        <div className={s.productsList}>
           {products.map((product, index) => (
-            <article
-              key={product.id}
-              className={`${s['product-card']} ${index % 2 === 0 ? s['image-right'] : s['image-left']}`}
-            >
-              <div className={s['product-content']}>
-                <div className={s['product-info']}>
-                  <h2 className={s['product-name']}>{product.name}</h2>
-                  <p className={s['product-category']}>{product.category}</p>
-                  <p className={s['product-description']}>{product.description}</p>
-                  <div className={s['product-specifications']}>
-                    <strong>Specifications:</strong>
-                    <p>{product.specifications}</p>
+            <article key={product.id} className={`${s.productCard} ${index % 2 === 0 ? s.imageLeft : s.imageRight}`}>
+              {/* Product Image with Active Tick */}
+              <div className={s.productImageContainer}>
+                <span className={s.activeTick}></span>
+                <img src={product.image} alt={product.name} className={s.productImage} />
+              </div>
+
+              {/* Product Info */}
+              <div className={s.productInfo}>
+                <div className={s.productHeader}>
+                  <div>
+                    <h2 className={s.productName}>{product.name}</h2>
+                    <span className={s.productCode}>#{product.code}</span>
                   </div>
-                  <div className={s['product-footer']}>
-                    <span className={s['product-price']}>{product.price}</span>
-                    <button
-                      className={s['add-to-cart-btn']}
-                      onClick={e => {
-                        e.target.textContent = 'Added!'
-                        e.target.style.backgroundColor = 'var(--success)'
-                        setTimeout(() => {
-                          e.target.textContent = 'Add to Cart'
-                          e.target.style.backgroundColor = ''
-                        }, 2000)
-                      }}
-                    >
-                      Add to Cart
-                    </button>
+                  <button className={s.viewBtn}>View Product</button>
+                </div>
+
+                <div className={s.productSpecs}>
+                  <strong>Specifications:</strong>
+                  <div className={s.specGrid}>
+                    {/* Show L, B, H in one line */}
+                    {product.specifications.L && product.specifications.B && product.specifications.H && (
+                      <div className={s.specItem}>
+                        {`L:${product.specifications.L} B:${product.specifications.B} H:${product.specifications.H}`}
+                      </div>
+                    )}
+
+                    {/* Render all other specs except L, B, H */}
+                    {Object.entries(product.specifications)
+                      .filter(([label]) => !['L', 'B', 'H'].includes(label))
+                      .map(([label, value], idx) => (
+                        <div key={idx} className={s.specItem}>
+                          <span className={s.specLabel}>{label}:</span> {value}
+                        </div>
+                      ))}
                   </div>
                 </div>
-                <div className={s['product-image-container']}>
-                  <img src={product.image} alt={product.name} className={s['product-image']} loading='lazy' />
+
+                <div className={s.productDescription}>
+                  <strong>Description:</strong>
+                  <p>{product.description}</p>
                 </div>
               </div>
             </article>
           ))}
         </div>
       </main>
+
       <Footer />
     </div>
   )

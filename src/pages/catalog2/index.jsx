@@ -5,30 +5,44 @@ import Footer from "layouts/home/footer/index.jsx";
 const CatalogPage = () => {
   return (
     <div>
-      {/* Header */}
-      <header className={s.header}>
-        <div className={s.container}>
-          <div className={s.headerTop}>
-            {/* <div className={s.logoSection}>
-              <img
-                src="https://images.pexels.com/photos/1040881/pexels-photo-1040881.jpeg?auto=compress&cs=tinysrgb&w=50&h=50"
-                alt="Molblgado Export"
-                className={s.logo}
-              />
-              <div className={s.companyInfo}>
-                <h1>Molblgado Export</h1>
-                <p>Premium Home Decor Collection</p>
-              </div>
-            </div> */}
-            {/* <nav className={s.mainNav}>
-              <a href="#" className={s.navLink}>Home</a>
-              <a href="#" className={s.navLink}>Products</a>
-              <a href="#" className={s.navLink}>About</a>
-              <a href="#" className={s.navLink}>Contact</a>
-            </nav> */}
+      <div className={s.header}>
+        <div className={s.topRow}>
+          {/* Left - Sort By */}
+          <div className={s.left}>
+            <select className={s.sortSelect}>
+              <option value="">Sort By</option>
+              <option value="price">Price</option>
+              <option value="name">Name</option>
+            </select>
+          </div>
+      
+          {/* Center - Title */}
+          <div className={s.center}>
+            <h1 className={s.title}>Catalogue Name</h1>
+          </div>
+      
+          {/* Right - Icons */}
+          <div className={s.right}>
+            <button className={s.iconBtn}>🔲</button>
+            <button className={s.iconBtn}>📋</button>
+            <button className={s.iconBtn}>☰</button>
           </div>
         </div>
-      </header>
+      
+        {/* Divider */}
+        <hr className={s.divider} />
+      
+        {/* Bottom Row */}
+        <div className={s.bottomRow}>
+          <div className={s.bottomLeft}>
+            <button className={s.linkBtn}>Select All</button>
+            <button className={s.linkBtn}>Deselect</button>
+          </div>
+          <div className={s.bottomRight}>
+            <button className={s.queryBtn}>Send Query</button>
+          </div>
+        </div>
+      </div>
 
       {/* Main Content */}
       <main className={s.mainContent}>
