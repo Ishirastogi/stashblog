@@ -35,50 +35,26 @@
 //   min-height: 100vh;
 // }
 
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 24px;
-}
-
-/* Header Styles */
+/* Header container */
 .header {
-  background: #fdfdfc;
-  padding: 10px 20px;
-  border-bottom: 1px solid #ccc;
+  width: 100%;       
+  max-width: 100%;       
+  margin: 0;             
+  padding: 10px 20px;    
+  box-sizing: border-box;
 }
-
+/* Top row - flex layout */
 .topRow {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 20px;
+  margin-bottom: 10px;
 }
 
+/* Left side - Sort select */
 .left {
   flex: 1;
-}
-
-.center {
-  flex: 1;
-  text-align: center;
-}
-
-.right {
-  flex: 1;
-  display: flex;
-  justify-content: flex-end;
-  gap: 10px;
-}
-
-.title {
-  font-size: 30px;
-  font-weight: 600;
-  margin: 0;
-  color: #1f2937;
-}
-
-.sortSelect {
-  padding: 5px 15px;
 }
 
 .iconBtn {
@@ -88,43 +64,102 @@
   font-size: 20px;
 }
 
-.divider {
-  margin: 10px 0;
-  border: none;
-  border-top: 1px solid #ddd;
+
+.sortSelect {
+  padding: 8px 18px;
+  font-size: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
+/* Center - Title */
+.center {
+  flex: 1;
+  text-align: center;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 600;
+  margin: 0;
+  color: #2c3e50;
+}
+
+/* Right side - Icons */
+.right {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.iconBtn {
+  font-size: 20px;
+  padding: 6px 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: #fff;
+  transition: all 0.2s ease;
+}
+
+.iconBtn:hover {
+  background-color: #f0f0f0;
+}
+
+/* Divider line */
+.divider {
+  border: none;
+  height: 2px;
+  background-color: #ccc;
+  margin: 10px 0 20px 0;
+}
+
+/* Bottom row */
 .bottomRow {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
+/* Left side - Select/Deselect */
 .bottomLeft {
   display: flex;
   gap: 10px;
 }
 
 .linkBtn {
+  padding: 0;
   background: none;
-  border: none;
+  border: none;      
+  outline: none;   
   cursor: pointer;
-  color: #444;
-  font-size: 20px;
+  font-size: 17px;
+  color: #2c2c2c;    
+  transition: color 0.2s ease;
 }
 
 .linkBtn:hover {
-  text-decoration: underline;
+  color: #34495e;    /* darker on hover */
+  text-decoration: underline; 
+}
+
+/* Right side - Send Query */
+.bottomRight {
+  text-align: right;
 }
 
 .queryBtn {
-  padding: 6px 20px;
+  padding: 10px 20px;
   border: 1px solid #444;
   background: #fff;
   cursor: pointer;
 }
 
-
+.queryBtn:hover {
+  background-color: #34495e;
+}
 
 /* Main content */
 .mainContent {
@@ -231,7 +266,7 @@
 
 /* View button */
 .viewBtn {
-    padding: 12px 20px;
+    padding: 10px 19px;
     border: 2px solid #3A3F55;
     background: #fff;
     cursor: pointer;
