@@ -1,4 +1,3 @@
-/* Header container */
 .header {
   width: 100%;       
   max-width: 100%;       
@@ -124,3 +123,97 @@
   background-color: #34495e;
 }
 
+
+
+.mainContent {
+  padding: 20px;
+  background: #fafafa;
+}
+
+.productGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+}
+
+.imageWrapper {
+  position: relative;
+}
+
+.imageWrapper img {
+  width: 100%;
+  height: 380px;
+  object-fit: cover;
+}
+
+.greenBox {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  width: 16px;
+  height: 16px;
+  background: #4caf50;
+  border: 2px solid #fff;
+  border-radius: 2px;
+}
+
+.productHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: 8px;
+}
+
+.productHeader h3 {
+  font-size: 1rem;
+  margin-bottom: 3px;
+ color: #3A3F55
+}
+
+.sku {
+  font-size: 0.85rem;
+  color: #8C8C8C;
+}
+
+.viewBtn {
+  background: #fff;
+  border: 3px solid #3A3F55;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  padding: 8px 12px;
+  cursor: pointer;
+  padding: 12px 18px;
+}
+
+.viewBtn:hover {
+  background: #222;
+  color: #fff;
+}
+
+.divider {
+  margin: 10px 0;
+  border: none;
+  border-top: 1px solid #ddd;
+}
+
+.specsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5px 15px;
+  font-size: 0.85rem;
+}
+.specsList {
+  display: flex;
+  flex-direction: column;
+  gap: 4px; /* space between specs */
+  font-size: 0.85rem;
+  color: #1E1E1E;
+}
+
+.specItem {
+  display: flex;
+  gap: 4px;
+}
+.specLabel {
+  font-weight: 600;
+}
